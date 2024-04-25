@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             ucakIsik = new PictureBox();
-            pictureBox1 = new PictureBox();
+            ucak = new PictureBox();
             panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
@@ -39,11 +40,12 @@
             sounds_UserControl1 = new Sounds_UserControl();
             panel7 = new Panel();
             button1 = new Button();
-            ucak = new Button();
+            goon = new Button();
             button3 = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ucakIsik).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ucak).BeginInit();
             panel6.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             // 
             panel1.BackColor = SystemColors.ControlDark;
             panel1.Controls.Add(ucakIsik);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(ucak);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -71,16 +73,16 @@
             ucakIsik.TabIndex = 3;
             ucakIsik.TabStop = false;
             // 
-            // pictureBox1
+            // ucak
             // 
-            pictureBox1.Image = Resource1.ucak;
-            pictureBox1.Location = new Point(3, 246);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(83, 128);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            ucak.Image = Resource1.ucak;
+            ucak.Location = new Point(3, 246);
+            ucak.Name = "ucak";
+            ucak.Size = new Size(83, 128);
+            ucak.SizeMode = PictureBoxSizeMode.StretchImage;
+            ucak.TabIndex = 2;
+            ucak.TabStop = false;
+            ucak.Click += pictureBox1_Click;
             // 
             // panel5
             // 
@@ -150,20 +152,21 @@
             button1.TabIndex = 5;
             button1.Text = "Turn on Lights";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // ucak
+            // goon
             // 
-            ucak.BackColor = Color.Silver;
-            ucak.FlatAppearance.BorderSize = 0;
-            ucak.FlatStyle = FlatStyle.Flat;
-            ucak.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ucak.Location = new Point(120, 242);
-            ucak.Name = "ucak";
-            ucak.Size = new Size(202, 64);
-            ucak.TabIndex = 6;
-            ucak.Text = "Go on";
-            ucak.UseVisualStyleBackColor = false;
-            ucak.Click += button2_Click;
+            goon.BackColor = Color.Silver;
+            goon.FlatAppearance.BorderSize = 0;
+            goon.FlatStyle = FlatStyle.Flat;
+            goon.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            goon.Location = new Point(120, 242);
+            goon.Name = "goon";
+            goon.Size = new Size(202, 64);
+            goon.TabIndex = 6;
+            goon.Text = "Go on";
+            goon.UseVisualStyleBackColor = false;
+            goon.Click += button2_Click;
             // 
             // button3
             // 
@@ -179,13 +182,18 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // timer1
+            // 
+            timer1.Interval = 50;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(546, 379);
             Controls.Add(button3);
-            Controls.Add(ucak);
+            Controls.Add(goon);
             Controls.Add(button1);
             Controls.Add(panel6);
             Controls.Add(panel1);
@@ -193,7 +201,7 @@
             Text = "Form1";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ucakIsik).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ucak).EndInit();
             panel6.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -203,15 +211,16 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel5;
-        private PictureBox pictureBox1;
+        private PictureBox ucak;
         private Panel panel4;
         private Panel panel3;
         private PictureBox ucakIsik;
         private Panel panel6;
         private Panel panel7;
         private Button button1;
-        private Button ucak;
+        private Button goon;
         private Button button3;
         private Sounds_UserControl sounds_UserControl1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
